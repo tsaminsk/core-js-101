@@ -60,8 +60,8 @@ function getJSON(obj) {
  *    const r = fromJSON(Circle.prototype, '{"radius":10}');
  *
  */
-function fromJSON(/* proto, json */) {
-  throw new Error('Not implemented');
+function fromJSON(proto, json) {
+  return Object.assign(Object.create(proto), JSON.parse(json));
 }
 
 
@@ -147,6 +147,46 @@ const cssSelectorBuilder = {
   combine(/* selector1, combinator, selector2 */) {
     throw new Error('Not implemented');
   },
+
+  // result: '',
+
+  // stringify: () => cssSelectorBuilder.result,
+
+  // element: (value) => {
+  //   cssSelectorBuilder.result = value;
+  //   return cssSelectorBuilder;
+  // },
+
+  // id: (value) => {
+  //   if (cssSelectorBuilder.result === 'div') cssSelectorBuilder.result = '';
+  //   cssSelectorBuilder.result += `#${value}`;
+  //   return cssSelectorBuilder;
+  // },
+
+  // class: (value) => {
+  //   if (value !== '') cssSelectorBuilder.result += `.${value}`;
+  //   return cssSelectorBuilder;
+  // },
+
+  // attr: (value) => {
+  //   cssSelectorBuilder.result += `[${value}]`;
+  //   return cssSelectorBuilder;
+  // },
+
+  // pseudoClass: (value) => {
+  //   cssSelectorBuilder.result += `:${value}`;
+  //   return cssSelectorBuilder;
+  // },
+
+  // pseudoElement: (value) => {
+  //   cssSelectorBuilder.result += `::${value}`;
+  //   return cssSelectorBuilder;
+  // },
+
+  // combine: (selector1, combinator, selector2) => {
+  //   cssSelectorBuilder.result = this[selector1] + combinator + this[selector2];
+  //   return cssSelectorBuilder;
+  // },
 };
 
 
